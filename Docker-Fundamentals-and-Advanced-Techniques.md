@@ -6,64 +6,6 @@
 
 Welcome to **Docker Fundamentals and Advanced Techniques.** This guide is designed to help you learn Docker, whether you're a beginner or looking to expand your skills.
 
-# Table of Contents
-
-- [💻Docker Fundamentals and Advanced Techniques💻](#docker-fundamentals-and-advanced-techniques)
-- [Table of Contents](#table-of-contents)
-- [Introduction](#introduction)
-  - [What is **Docker?**](#what-is-docker)
-  - [What is Docker Good For?](#what-is-docker-good-for)
-  - [Docker Architecture](#docker-architecture)
-  - [Quick Terminology Check](#quick-terminology-check)
-- [Docker Installation](#docker-installation)
-  - [Docker for Ubuntu](#docker-for-ubuntu)
-  - [Docker for Windows](#docker-for-windows)
-- [Docker File](#docker-file)
-  - [What is Docker File?](#what-is-docker-file)
-- [Docker Image](#docker-image)
-  - [What is Docker Image?](#what-is-docker-image)
-- [Docker Image Commands](#docker-image-commands)
-  - [What is Docker tag?](#what-is-docker-tag)
-- [Docker Container](#docker-container)
-  - [Docker Command Reference](#docker-command-reference)
-  - [Lifecycle of a Docker container](#lifecycle-of-a-docker-container)
-  - [Container Naming \& Identificatioon](#container-naming--identificatioon)
-  - [Container Logs and Stats](#container-logs-and-stats)
-  - [Why a Docker container exits?](#why-a-docker-container-exits)
-  - [How to Keep the Container Running?](#how-to-keep-the-container-running)
-  - [Container Interaction](#container-interaction)
-- [CMD vs Entrypoint](#cmd-vs-entrypoint)
-  - [CMD:](#cmd)
-  - [Entrypoint](#entrypoint)
-  - [Using CMD \& Entrypoint together](#using-cmd--entrypoint-together)
-  - [When to use?](#when-to-use)
-- [Docker Ignore](#docker-ignore)
-  - [Why Use `.dockerignore`?](#why-use-dockerignore)
-- [Docker Volume](#docker-volume)
-  - [Why Use Docker Volumes?](#why-use-docker-volumes)
-  - [Types of Docker Volumes](#types-of-docker-volumes)
-  - [Docker Volumes Command](#docker-volumes-command)
-  - [Create Nginx volume and run Nginx Pod with attached volume inside of Nginx Pod](#create-nginx-volume-and-run-nginx-pod-with-attached-volume-inside-of-nginx-pod)
-  - [Bind Mount](#bind-mount)
-- [Docker Namespace](#docker-namespace)
-- [Docker Networking](#docker-networking)
-  - [Docker Networking Command](#docker-networking-command)
-- [Docker Network Drivers](#docker-network-drivers)
-  - [Bridge Driver](#bridge-driver)
-  - [Host Driver](#host-driver)
-  - [IPvlan Driver](#ipvlan-driver)
-  - [MacVlan Driver](#macvlan-driver)
-  - [Null Driver](#null-driver)
-  - [Overlay Driver](#overlay-driver)
-- [Docker Compose](#docker-compose)
-  - [Key Features of Docker Compose](#key-features-of-docker-compose)
-  - [Benifits of Docker Compose](#benifits-of-docker-compose)
-  - [Docker Compose Installation](#docker-compose-installation)
-  - [What is `docker-compose.yml` file?](#what-is-docker-composeyml-file)
-  - [Example of `docker-compose.yml` File with breakdown](#example-of-docker-composeyml-file-with-breakdown)
-  - [Why yaml file support json file also?](#why-yaml-file-support-json-file-also)
-  - [Docker Compose Commands](#docker-compose-commands)
-
 # Introduction
 
 ## What is **Docker?**
@@ -114,7 +56,7 @@ Docker helps developers build and share applications smoothly. It keeps everythi
 - A Docker registry stores Docker images. **Docker Hub** is a public registry that anyone can use, and **Docker looks for images on Docker Hub by default**. You can even run your own private registry.
 - When you use the docker pull or docker run commands, Docker pulls the required images from your configured registry. When you use the docker push command, Docker pushes your image to your configured registry.
 
-# Docker Installation
+## Docker Installation
 
 Simplified installation steps for Docker on Ubuntu and Windows -
 
@@ -181,6 +123,30 @@ Open a command prompt and run
 ```bash
   docker --version
 ```
+
+**5. Check the Docker Service Status**
+Open **Windows PowerShell** and run the following command to see if the Docker service is running or stopped.
+
+```bash
+  Get-Service *docker*
+```
+
+- If the service is running, the output will show **`Status: Running`**.
+- If the service is not running, the output will show **`Status: Stopped`**.
+
+**6. Start the Docker Service (if it is stopped)**
+
+If the Docker service is stopped, we need to run PowerShell with administrator privileges to start it.
+
+1. Close your current PowerShell window.
+2. Search for "PowerShell" in the Start Menu, right-click on it, and select "Run as administrator".
+3. In the administrator PowerShell window, run the following command to start the service.
+
+```bash
+Start-Service -Name "com.docker.service"
+```
+
+After running this command, the Docker Engine should be started.
 
 # Docker File
 
@@ -300,6 +266,12 @@ Tags help us to keep track of different versions of our images, enabling us to s
 
 ```bash
   docker tag source_image:tag new:image:tag
+```
+
+**Remove all unused Docker images**
+
+```bash
+  docker image prune -a
 ```
 
 **Push an image to Docker Hub**
