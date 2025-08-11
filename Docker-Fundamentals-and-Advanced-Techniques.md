@@ -334,6 +334,12 @@ These section should help you manage Docker on your system efficiently.
   docker container list
 ```
 
+**Remove all Docker Containers**
+
+```bash
+  docker container rm $(docker container ls -aq)
+```
+
 ### Lifecycle of a Docker container
 
 The lifecycle of a Docker container involves several stages, including creation, running, stopping, and removal. Containers are instantiated from Docker images, operated as isolated instances, and can be halted or paused as necessary. Finally, when their purpose is fulfilled or they are no longer required, containers can be efficiently removed.
@@ -511,6 +517,11 @@ You will be prompted to confirm the action. To skip the confirmation prompt, use
 ```
 
 _**Note :** The key combination **`Ctrl + P + Q`** is used to detach from a running Docker container without stopping it._
+**Remove Unused Docker data and free up Space**
+
+```bash
+  docker system prune -af
+```
 
 ### Why a Docker container exits?
 
