@@ -51,7 +51,7 @@ Once you have created your Dockerfile, you can build the Docker image using the 
 
 **Breakdown :**
 
-**`docker build -t user_name/image_name:version`:** Command to build the Docker image & tags the image with a name & version.**`user_name`** Your Docker Hub username or the organization name. This is the namespace for the image, typically in the form of **`username/image_name`**.
+**`docker build -t user_name/image_name:version`:** Command to build the Docker image & tags the image with a name & version.**`user_name`** is your Docker Hub username or the organization name. This is the namespace for the image, typically in the form of **`username/image_name`**.
 
 **`.`:** Specifies the build context (current directory).
 
