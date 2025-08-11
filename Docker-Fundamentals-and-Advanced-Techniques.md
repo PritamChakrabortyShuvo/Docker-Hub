@@ -262,7 +262,7 @@ Tags help us to keep track of different versions of our images, enabling us to s
   docker rmi <image_name>:tag
 ```
 
-**Tag an image**
+**Rename the Tag of an image**
 
 ```bash
   docker tag source_image:tag new:image:tag
@@ -278,6 +278,12 @@ Tags help us to keep track of different versions of our images, enabling us to s
 
 ```bash
   docker push image_name:tag
+```
+
+**Load a Docker image from a tarball**
+
+```bash
+docker image load -i my_image.tar
 ```
 
 # Docker Container
