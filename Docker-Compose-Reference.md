@@ -74,6 +74,7 @@ This sets up the database for WordPress to store data like posts and user info.
   - **`MYSQL_DATABASE: example_db`**: Creates a database called **`example_db`**.
   - **`MYSQL_USER: example_user`**: Creates a user named **`example_user`**.
   - **`MYSQL_PASSWORD: user_password`**: Sets the password for **`example_user`**.
+  - **Where to Find These Variables:** These environment variables are listed in the **MySQL image documentation on Docker Hub**. Search for the "**Environment Variables**" section to see all support.
 - **Ports**: **`3306:3306`** lets you access the database from your computer on port 3306 (useful for tools like MySQL Workbench). Format is **`host_port:container_port`**.
 - **Volumes**: Saves database files in a “folder” called **`db_data`** so data isn’t lost if the container stops.
 
@@ -90,6 +91,7 @@ This sets up the WordPress website, which connects to the MySQL database.
   - **`WORDPRESS_DB_USER: root`**: Uses the MySQL **`root`** user to log in (not the safest, but works for testing).
   - **`WORDPRESS_DB_PASSWORD: root_password`**: The password for the **`root`** user.
   - **`WORDPRESS_DB_NAME: example_db`**: Tells WordPress to use the **`example_db`** database.
+  - **Where to Find These Variables**: These environment variables are documented in the WordPress image page on Docker Hub. Look under the "Environment Variables" section for details on **`WORDPRESS_DB_HOST, WORDPRESS_DB_USER, WORDPRESS_DB_PASSWORD, WORDPRESS_DB_NAME`** & other options.
 - **Volumes**: Saves WordPress files (like themes, plugins, and uploads) in a “folder” called **`wordpress`** so they don’t disappear if the container stops.
 
 ### 3. Volumes
@@ -125,6 +127,9 @@ docker-compose down
 - **Security**: Using the **`root`** user for WordPress isn’t very secure. For a real site, use **`example_user`** instead. Also, don’t hardcode passwords in the file—use a **`.env`** file.
 - **Port 3306**: The database is accessible from your computer, but you may not need this for a live site (remove **`3306:3306`** for safety).
 - **Data Persistence**: The volumes ensure your website and database data are saved, even if containers stop.
+- **Finding Environment Variables**: The environment variables for both MySQL and WordPress are documented on their respective Docker Hub pages:
+  - **`MySQL Docker Hub for MYSQL_*`** variables.
+  - **`WordPress Docker Hub for WORDPRESS_*`** variables. These pages list all supported variables and their purposes, so you can customize the setup if needed.
 
 ## Summary
 
