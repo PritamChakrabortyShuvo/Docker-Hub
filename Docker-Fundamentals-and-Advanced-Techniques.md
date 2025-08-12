@@ -705,7 +705,7 @@ Docker volumes are used to **manage data persistence in Docker containers**. The
 ### Types of Docker Volumes
 
 - **Named Volumes :** Managed by Docker, and Docker takes care of their location.
-- **Anonymous Volumes :** Created when you use -v or --mount without specifying a volume name.
+- **Unnamed (Anonymous) Volumes :** Created when you use **`-v`** or **`--mount`** without specifying a volume name.
 - **Host Volumes (Bind Mounts) :** Use a directory or file from the host filesystem.
 
 ### Docker Volumes Command
@@ -713,7 +713,7 @@ Docker volumes are used to **manage data persistence in Docker containers**. The
 **Create a named volume**
 
 ```bash
-   docker volume create volume_name
+   docker volume create volume_name #named volume
 ```
 
 **List all volumes**
@@ -865,7 +865,7 @@ The **host network driver** in Docker provides a way to run containers that shar
 - Bind them to the same host port 80.
 
 ```bash
-  docker run --network=host -d --name=container_name image_name
+  docker run --network=host --name=container_name image_name
 ```
 
 ### IPvlan Driver
