@@ -116,6 +116,7 @@ This sets up the WordPress website, which connects to the MySQL database.
 ### 3. Volumes
 
 - **`db_data:`**: A special “folder” to store MySQL database files, ensuring data persists even if the container is deleted.
+
 - **`wordpress:`**: A “folder” to store WordPress files (e.g., themes, plugins, uploads) for persistence.
 
 ## How It All Works
